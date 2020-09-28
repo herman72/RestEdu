@@ -1,3 +1,4 @@
 Django==2.2.3
 
 djangorestframework~=3.11.1
+Pygments~=2.7.1
