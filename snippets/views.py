@@ -48,14 +48,15 @@ class SnippetViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-# class SnippetHighlight(generics.GenericAPIView):
-#     queryset = Snippet.objects.all()
-#     renderer_classes = [renderers.StaticHTMLRenderer]
-#
-#     def get(self, request, *args, **kwargs):
-#         snippet = self.get_object()
-#         return Response(snippet.highlighted)
-#
+
+class SnippetHighlight(generics.GenericAPIView):
+    queryset = Snippet.objects.all()
+    renderer_classes = [renderers.StaticHTMLRenderer]
+
+    def get(self, request, *args, **kwargs):
+        snippet = self.get_object()
+        return Response(snippet.highlighted)
+
 #
 # class SnippetList(generics.ListCreateAPIView):
 #     queryset = Snippet.objects.all()
